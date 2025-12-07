@@ -67,7 +67,7 @@ const LandingPage: React.FC = () => {
         {/* Application Link */}
         <div className="pt-6 border-t border-gray-200">
           <a
-            href="/app"
+            href="/login"
             className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             Go to Application →

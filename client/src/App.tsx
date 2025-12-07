@@ -126,46 +126,28 @@ const AppRoutes: React.FC = () => {
     return (
       <SignupProvider>
         <Routes>
-          {/* Landing page */}
-          <Route path="/" element={<LandingPage />} />
-
           {/* Public routes */}
-          <Route path="/app" element={<Landing />} />
-          <Route path="/app/search" element={<SearchPage />} />
-          <Route path="/app/search/:criteria" element={<SearchPage />} />
-          <Route path="/app/details/:id" element={<DetailsPage />} />
-          <Route path="/app/privacy" element={<PrivacyPolicy />} />
-          <Route path="/app/login" element={<Login />} />
-          <Route path="/app/logout" element={<Logout />} />
-          <Route path="/app/signup1" element={<SignUp1 />} />
-          <Route path="/app/signup2" element={<SignUp2 />} />
-          <Route path="/app/signup3" element={<SignUp3 />} />
-          <Route path="/app/roleselection" element={<RollSelection />} />
-          <Route
-            path="/app/patientonboarding1"
-            element={<PatientOnboarding1 />}
-          />
-          <Route
-            path="/app/patientonboarding2"
-            element={<PatientOnboarding2 />}
-          />
-          <Route
-            path="/app/patientonboarding3"
-            element={<PatientOnboarding3 />}
-          />
-          <Route
-            path="/app/patientonboarding4"
-            element={<PatientOnboarding4 />}
-          />
-          <Route path="/app/doctoronboarding" element={<DoctorOnboarding />} />
-          <Route path="/app/forgotpassword" element={<ForgotPassword />} />
-          <Route
-            path="/app/reset-password/:token"
-            element={<ResetPassword />}
-          />
-          <Route path="/app/error" element={<Error />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search/:criteria" element={<SearchPage />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/signup1" element={<SignUp1 />} />
+          <Route path="/signup2" element={<SignUp2 />} />
+          <Route path="/signup3" element={<SignUp3 />} />
+          <Route path="/roleselection" element={<RollSelection />} />
+          <Route path="/patientonboarding1" element={<PatientOnboarding1 />} />
+          <Route path="/patientonboarding2" element={<PatientOnboarding2 />} />
+          <Route path="/patientonboarding3" element={<PatientOnboarding3 />} />
+          <Route path="/patientonboarding4" element={<PatientOnboarding4 />} />
+          <Route path="/doctoronboarding" element={<DoctorOnboarding />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/error" element={<Error />} />
           {/* Redirect everything else to login */}
-          <Route path="*" element={<Navigate to="/app/login" replace />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </SignupProvider>
     );
@@ -174,85 +156,58 @@ const AppRoutes: React.FC = () => {
   return (
     <SignupProvider>
       <Routes>
-        {/* Landing page */}
         <Route path="/" element={<LandingPage />} />
-
-        <Route path="/app" element={<Landing />} />
-        <Route path="/app/signup1" element={<SignUp1 />} />
-        <Route path="/app/signup2" element={<SignUp2 />} />
-        <Route path="/app/signup3" element={<SignUp3 />} />
-        <Route path="/app/roleselection" element={<RollSelection />} />
-        <Route
-          path="/app/patientonboarding1"
-          element={<PatientOnboarding1 />}
-        />
-        <Route
-          path="/app/patientonboarding2"
-          element={<PatientOnboarding2 />}
-        />
-        <Route
-          path="/app/patientonboarding3"
-          element={<PatientOnboarding3 />}
-        />
-        <Route
-          path="/app/patientonboarding4"
-          element={<PatientOnboarding4 />}
-        />
-        <Route path="/app/doctoronboarding" element={<DoctorOnboarding />} />
-        <Route path="/app/login" element={<Login />} />
-        <Route path="/app/logout" element={<Logout />} />
-        <Route path="/app/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/app/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/signup1" element={<SignUp1 />} />
+        <Route path="/signup2" element={<SignUp2 />} />
+        <Route path="/signup3" element={<SignUp3 />} />
+        <Route path="/roleselection" element={<RollSelection />} />
+        <Route path="/patientonboarding1" element={<PatientOnboarding1 />} />
+        <Route path="/patientonboarding2" element={<PatientOnboarding2 />} />
+        <Route path="/patientonboarding3" element={<PatientOnboarding3 />} />
+        <Route path="/patientonboarding4" element={<PatientOnboarding4 />} />
+        <Route path="/doctoronboarding" element={<DoctorOnboarding />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         {/* Patient routes */}
         <Route element={<PatientLayout />}>
-          <Route path="/app/patientdashboard" element={<Dashboard />} />
-          <Route path="/app/appointments" element={<Appointments />} />
-          <Route path="/app/patient-profile" element={<PatientProfile />} />
+          <Route path="/patientdashboard" element={<Dashboard />} />
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/patient-profile" element={<PatientProfile />} />
           <Route
-            path="/app/patient-profile-edit"
+            path="/patient-profile-edit"
             element={<PatientProfileEdit />}
           />
           <Route
-            path="/app/patient/appointment/:appointmentId"
+            path="/patient/appointment/:appointmentId"
             element={<PatientAppointmentView />}
           />
-          <Route
-            path="/app/doctor/:doctorId"
-            element={<PublicDoctorProfile />}
-          />
-          <Route path="/app/patientbookmarks" element={<PatientBookmarks />} />
+          <Route path="/doctor/:doctorId" element={<PublicDoctorProfile />} />
+          <Route path="/patientbookmarks" element={<PatientBookmarks />} />
         </Route>
 
         {/* Doctor routes */}
         <Route element={<DoctorLayout />}>
-          <Route path="/app/doctordashboard" element={<DoctorDashboard />} />
-          <Route path="/app/doctorpatients" element={<DoctorPatientsPage />} />
+          <Route path="/doctordashboard" element={<DoctorDashboard />} />
+          <Route path="/doctorpatients" element={<DoctorPatientsPage />} />
+          <Route path="/doctorappointments" element={<DoctorAppointments />} />
           <Route
-            path="/app/doctorappointments"
-            element={<DoctorAppointments />}
-          />
-          <Route
-            path="/app/doctor/appointment/:appointmentId"
+            path="/doctor/appointment/:appointmentId"
             element={<AppointmentDetails />}
           />
           <Route
-            path="/app/patient/:patientId"
+            path="/patient/:patientId"
             element={<DoctorPatientProfile />}
           />
-          <Route
-            path="/app/doctorbookmarks"
-            element={<DoctorResearchLibrary />}
-          />
-          <Route path="/app/doctor-profile" element={<DoctorProfile />} />
-          <Route
-            path="/app/doctor-profile-edit"
-            element={<DoctorProfileEdit />}
-          />
+          <Route path="/doctorbookmarks" element={<DoctorResearchLibrary />} />
+          <Route path="/doctor-profile" element={<DoctorProfile />} />
+          <Route path="/doctor-profile-edit" element={<DoctorProfileEdit />} />
         </Route>
 
-        <Route path="/app/error" element={<Error />} />
-        <Route path="*" element={<Navigate to="/app/error" replace />} />
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<Navigate to="/error" replace />} />
       </Routes>
     </SignupProvider>
   );
