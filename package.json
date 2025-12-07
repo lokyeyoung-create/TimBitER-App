@@ -1,0 +1,7 @@
+{
+  "name": "timbiter-app",
+  "private": true,
+  "workspaces": [
+    "client"
+  ]
+}
