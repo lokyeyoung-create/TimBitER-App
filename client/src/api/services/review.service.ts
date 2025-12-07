@@ -1,46 +1,25 @@
+import { apiClient } from '../client';
+
 export const createReview = async (payload: any, token: string) => {
-  const res = await fetch(`/api/reviews`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(payload),
-  });
-  return res.json();
+  return apiClient.post('/reviews', payload);
 };
 
 export const getReviewsByItem = async (itemId: string) => {
-  const res = await fetch(`/api/reviews/item/${itemId}`);
-  return res.json();
+  return apiClient.get(`/reviews/item/${itemId}`);
 };
 
 export const getReviewsByUser = async (userId: string) => {
-  const res = await fetch(`/api/reviews/user/${userId}`);
-  return res.json();
+  return apiClient.get(`/reviews/user/${userId}`);
 };
 
 export const updateReview = async (reviewId: string, payload: any, token: string) => {
-  const res = await fetch(`/api/reviews/${reviewId}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(payload),
-  });
-  return res.json();
+  return apiClient.put(`/reviews/${reviewId}`, payload);
 };
 
 export const deleteReview = async (reviewId: string, token: string) => {
-  const res = await fetch(`/api/reviews/${reviewId}`, {
-    method: "DELETE",
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.json();
+  return apiClient.delete(`/reviews/${reviewId}`);
 };
 
 export const getItemRating = async (itemId: string) => {
-  const res = await fetch(`/api/reviews/item/${itemId}/rating`);
-  return res.json();
+  return apiClient.get(`/reviews/item/${itemId}/rating`);
 };

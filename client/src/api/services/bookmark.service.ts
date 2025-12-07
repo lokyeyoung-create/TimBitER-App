@@ -1,39 +1,21 @@
+import { apiClient } from '../client';
+
 export const createBookmark = async (payload: any, token: string) => {
-  const res = await fetch(`/api/bookmarks`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(payload),
-  });
-  return res.json();
+  return apiClient.post('/bookmarks', payload);
 };
 
 export const deleteBookmark = async (bookmarkId: string, token: string) => {
-  const res = await fetch(`/api/bookmarks/${bookmarkId}`, {
-    method: "DELETE",
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.json();
+  return apiClient.delete(`/bookmarks/${bookmarkId}`);
 };
 
 export const getUserBookmarks = async (userId: string) => {
-  const res = await fetch(`/api/bookmarks/user/${userId}`);
-  return res.json();
+  return apiClient.get(`/bookmarks/user/${userId}`);
 };
 
 export const isBookmarked = async (itemId: string, token: string) => {
-  const res = await fetch(`/api/bookmarks/check/${itemId}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.json();
+  return apiClient.get(`/bookmarks/check/${itemId}`);
 };
 
 export const deleteBookmarkByItem = async (itemId: string, token: string) => {
-  const res = await fetch(`/api/bookmarks/item/${itemId}`, {
-    method: "DELETE",
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.json();
+  return apiClient.delete(`/bookmarks/item/${itemId}`);
 };
