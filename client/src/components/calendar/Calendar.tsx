@@ -151,94 +151,101 @@ const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <div
-      className={`bg-white rounded-xl border border-gray-200 shadow-sm p-6 ${className}`}
+      className={`bg-white rounded-xl border border-gray-200 shadow-sm p-4 sm:p-6 ${className}`}
     >
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 sm:mb-6">
         <button
           onClick={() => navigateMonth("prev")}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 self-start sm:self-auto"
           type="button"
           aria-label="Previous month"
         >
           <ArrowElbowLeft size={20} />
         </button>
 
-        <h2 className="text-lg font-semibold text-gray-900">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-900 text-center">
           {monthNames[viewDate.getMonth()]} {viewDate.getFullYear()}
         </h2>
 
         <button
           onClick={() => navigateMonth("next")}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 self-start sm:self-auto"
           type="button"
           aria-label="Next month"
         >
           <ArrowElbowRight size={20} />
         </button>
       </div>
-      <div className="grid grid-cols-7 mb-2">
-        {dayNames.map((day) => (
-          <div
-            key={day}
-            className="text-center text-sm font-medium text-gray-500 py-2"
-          >
-            {day}
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-7">
-        {generateCalendarDays().map((date, index) => {
-          if (!date) return <div key={`empty-${index}`} />;
-
-          const isSelected = isDateSelected(date);
-          const isHighlighted = isDateHighlighted(date);
-          const hasAppt = hasAppointment(date);
-          const isTodayDate = isToday(date);
-          const isInCurrentMonth = isCurrentMonth(date);
-          const isDisabled = isDateDisabled(date);
-
-          return (
-            <div key={`day-${index}`} className="aspect-[3/2] p-1">
-              <button
-                onClick={() => handleDateClick(date)}
-                disabled={isDisabled}
-                type="button"
-                className={`
-                  w-full h-full flex flex-col items-center justify-center
-                  text-md font-medium rounded-lg
-                  transition-all duration-150
-                  relative
-                  ${!isInCurrentMonth ? "text-gray-400" : "text-gray-900"}
-                  ${
-                    isSelected
-                      ? "bg-primary text-white hover:bg-primary/90"
-                      : isHighlighted
-                      ? "bg-green-100 text-green-700 hover:bg-green-200"
-                      : isTodayDate
-                      ? "bg-blue-50 text-blue-600 font-semibold"
-                      : "hover:bg-gray-100"
-                  }
-                  ${
-                    isDisabled
-                      ? "opacity-50 cursor-not-allowed"
-                      : "cursor-pointer"
-                  }
-                `}
+      <div className="overflow-x-auto">
+        <div className="min-w-[360px] sm:min-w-0">
+          <div className="grid grid-cols-7 mb-2">
+            {dayNames.map((day) => (
+              <div
+                key={day}
+                className="text-center text-xs sm:text-sm font-medium text-gray-500 py-2"
               >
-                {date.getDate()}
-                {/* Show indicators for available dates and appointments */}
-                <div className="flex gap-1 mt-1">
-                  {isHighlighted && (
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                  )}
-                  {hasAppt && (
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                  )}
+                {day}
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-7">
+            {generateCalendarDays().map((date, index) => {
+              if (!date) return <div key={`empty-${index}`} />;
+
+              const isSelected = isDateSelected(date);
+              const isHighlighted = isDateHighlighted(date);
+              const hasAppt = hasAppointment(date);
+              const isTodayDate = isToday(date);
+              const isInCurrentMonth = isCurrentMonth(date);
+              const isDisabled = isDateDisabled(date);
+
+              return (
+                <div
+                  key={`day-${index}`}
+                  className="aspect-[3/2] p-[2px] sm:p-1"
+                >
+                  <button
+                    onClick={() => handleDateClick(date)}
+                    disabled={isDisabled}
+                    type="button"
+                    className={`
+                      w-full h-full flex flex-col items-center justify-center
+                      text-sm sm:text-md font-medium rounded-lg
+                      transition-all duration-150
+                      relative
+                      ${!isInCurrentMonth ? "text-gray-400" : "text-gray-900"}
+                      ${
+                        isSelected
+                          ? "bg-primary text-white hover:bg-primary/90"
+                          : isHighlighted
+                          ? "bg-green-100 text-green-700 hover:bg-green-200"
+                          : isTodayDate
+                          ? "bg-blue-50 text-blue-600 font-semibold"
+                          : "hover:bg-gray-100"
+                      }
+                      ${
+                        isDisabled
+                          ? "opacity-50 cursor-not-allowed"
+                          : "cursor-pointer"
+                      }
+                    `}
+                  >
+                    {date.getDate()}
+                    {/* Show indicators for available dates and appointments */}
+                    <div className="flex gap-1 mt-1">
+                      {isHighlighted && (
+                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                      )}
+                      {hasAppt && (
+                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      )}
+                    </div>
+                  </button>
                 </div>
-              </button>
-            </div>
-          );
-        })}
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

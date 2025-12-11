@@ -2,8 +2,8 @@ import React from "react";
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
-      <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-10 sm:p-8">
+      <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-6 sm:p-8 space-y-8">
         {/* Header Info */}
         <div className="text-sm text-gray-600 mb-8 space-y-1">
           <p>Arav Goyal, undergrad, 202610_1</p>
@@ -12,13 +12,13 @@ const LandingPage: React.FC = () => {
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-8">
           TimBitER Application
         </h1>
 
         {/* Links Section */}
-        <div className="space-y-4 mb-8">
-          <h2 className="text-lg font-semibold text-gray-700 mb-4">
+        <div className="space-y-4">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-700">
             Project Links:
           </h2>
           <div className="space-y-3">
@@ -67,7 +67,7 @@ const LandingPage: React.FC = () => {
         {/* Application Link */}
         <div className="pt-6 border-t border-gray-200">
           <a
-            href="/login"
+            href="/home"
             className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             Go to Application →

@@ -66,7 +66,7 @@ const SignUp1: React.FC = () => {
         {/* First Name */}
         <label className="text-gray-600 mb-2">First Name</label>
         <Field
-          placeholder="Ved"
+          placeholder="First name"
           value={signupData.firstName}
           onChange={handleChange("firstName")}
         />
@@ -74,7 +74,7 @@ const SignUp1: React.FC = () => {
         {/* Last Name */}
         <label className="text-gray-600 mb-2">Last Name</label>
         <Field
-          placeholder="Naykude"
+          placeholder="Last name"
           value={signupData.lastName}
           onChange={handleChange("lastName")}
         />
@@ -82,7 +82,7 @@ const SignUp1: React.FC = () => {
         {/* Email */}
         <label className="text-gray-600 mb-2">Email</label>
         <Field
-          placeholder="ved.naykude@palantir.com"
+          placeholder="name@example.com"
           value={signupData.email}
           onChange={handleChange("email")}
         />

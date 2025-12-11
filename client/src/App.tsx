@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import Landing from "./pages/Onboarding/Landing";
 import LandingPage from "./pages/LandingPage";
+import Home from "./pages/Home";
 import SearchPage from "./pages/Search/SearchPage";
 import DetailsPage from "./pages/Details/DetailsPage";
 import PrivacyPolicy from "./pages/Privacy/PrivacyPolicy";
@@ -132,6 +133,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/details/:id" element={<DetailsPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup1" element={<SignUp1 />} />
@@ -157,6 +159,7 @@ const AppRoutes: React.FC = () => {
     <SignupProvider>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/signup1" element={<SignUp1 />} />
         <Route path="/signup2" element={<SignUp2 />} />
         <Route path="/signup3" element={<SignUp3 />} />

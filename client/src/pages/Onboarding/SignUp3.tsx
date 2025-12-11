@@ -42,7 +42,7 @@ const SignUp3: React.FC = () => {
       <div className="flex flex-col gap-6">
         <label className="text-gray-600 mb-2">Username</label>
         <Field
-          placeholder="vednaykude"
+          placeholder="your_username"
           value={signupData.username || ""}
           onChange={handleChange("username")}
         />
